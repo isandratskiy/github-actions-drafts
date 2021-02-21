@@ -11,5 +11,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Do Something Based On Triggered Event Data
+      - name: Triggered By Repo Dispathcer
         run: 'echo "Triggered event text: ${{ github.event.client_payload.text }}"'

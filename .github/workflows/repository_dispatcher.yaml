@@ -15,7 +15,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
 
     steps:
-      - name: Do Something Based On Triggered Event Data
+      - name: Do Dispatch
         run: |
           curl -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Authorization: Bearer $GH_TOKEN" \
