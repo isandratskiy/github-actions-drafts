@@ -1,4 +1,4 @@
-name: Repository Dispatch Example
+name: Dispatcher
 
 on:
   push:
