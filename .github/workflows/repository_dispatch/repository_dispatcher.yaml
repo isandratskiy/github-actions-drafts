@@ -1,0 +1,23 @@
+name: Repository Dispatch Example
+
+on:
+  push:
+    branches:
+      - 'master'
+  schedule:
+    - cron: '0 2 * * 0-6'
+
+jobs:
+  build:
+    name: Dispatch Repo
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Do Something Based On Triggered Event Data
+        run: |
+          curl -H "Accept: application/vnd.github.everest-preview+json" \
+              -H "Authorization: Bearer ${GH_DISPATCH_TOKEN}" \
+              --request POST \
+              --data '{"event_type": "do-something", "client_payload": { "text": "CROC"}}' \
+              https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
