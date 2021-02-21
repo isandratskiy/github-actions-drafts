@@ -12,7 +12,7 @@ jobs:
     name: Dispatch Repo
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }
+      GH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
 
     steps:
       - name: Do Something Based On Triggered Event Data
