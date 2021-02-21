@@ -13,6 +13,7 @@ jobs:
       GH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
 
     steps:
+      - name: Success
       - uses: nick-invision/retry@v2
         with:
          max_attempts: 5
@@ -24,3 +25,16 @@ jobs:
                --request POST \
                --data '{"event_type": "do-something", "client_payload": { "text": "CROC"}}' \
                https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
+
+      - name: Failure
+      - uses: nick-invision/retry@v2
+        with:
+          max_attempts: 5
+          timeout_minutes: 1
+          retry_on: error
+          command: |
+            curl -H "Accept: application/vnd.github.everest-preview+json" \
+                -H "Authorization: Bearer $GH_TOK" \
+                --request POST \
+                --data '{"event_type": "do-something", "client_payload": { "text": "CROC"}}' \
+                https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
