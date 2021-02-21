@@ -42,18 +42,21 @@ jobs:
                 https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
 
       - name: Check Success
+        if: always()
         run: |
           echo ${{ steps.retry_success.outcome }}
           echo ${{ steps.retry_failure.outcome }}
 
       - name: Check Success
         uses: nick-invision/assert-action@v1
+        if: always()
         with:
           expected: success
           actual: ${{ steps.retry_success.outcome }}
 
       - name: Check Failure
         uses: nick-invision/assert-action@v1
+        if: always()
         with:
           expected: failure
           actual: ${{ steps.retry_failure.outcome }}
