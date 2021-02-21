@@ -19,6 +19,7 @@ jobs:
         with:
          max_attempts: 2
          timeout_minutes: 1
+         retry_wait_seconds: 1
          retry_on: error
          command: |
            curl -f -H "Accept: application/vnd.github.everest-preview+json" \
@@ -33,6 +34,7 @@ jobs:
         with:
           max_attempts: 2
           timeout_minutes: 1
+          retry_wait_seconds: 1
           retry_on: error
           command: |
             curl -f -H "Accept: application/vnd.github.everest-preview+json" \
