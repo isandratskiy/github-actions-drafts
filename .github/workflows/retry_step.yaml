@@ -42,7 +42,6 @@ jobs:
                 https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
 
       - name: Check Success
-        uses: nick-invision/assert-action@v1
         run: |
           echo ${{ steps.retry_success.outcome }}
           echo ${{ steps.retry_failure.outcome }}
