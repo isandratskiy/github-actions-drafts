@@ -17,7 +17,7 @@ jobs:
         id: retry_success
         uses: nick-invision/retry@v2
         with:
-         max_attempts: 5
+         max_attempts: 2
          timeout_minutes: 1
          retry_on: error
          command: |
@@ -31,7 +31,7 @@ jobs:
         id: retry_failure
         uses: nick-invision/retry@v2
         with:
-          max_attempts: 5
+          max_attempts: 2
           timeout_minutes: 1
           retry_on: error
           command: |
