@@ -1,0 +1,24 @@
+name: Retry Dispatcher
+
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    name: Retry Dispatch Repo
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_DISPATCH_TOKEN }}
+
+    steps:
+      - uses: nick-invision/retry@v2
+        with:
+         max_attempts: 5
+         command: |
+           curl -H "Accept: application/vnd.github.everest-preview+json" \
+               -H "Authorization: Bearer $GH_TOKEN" \
+               --request POST \
+               --data '{"event_type": "do-something", "client_payload": { "text": "CROC"}}' \
+               https://api.github.com/repos/isandratskiy/github-actions-drafts/dispatches
