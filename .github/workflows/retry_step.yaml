@@ -43,9 +43,15 @@ jobs:
 
       - name: Check Success
         uses: nick-invision/assert-action@v1
+        run: |
+          echo ${{ steps.retry_success.outcome }}
+          echo ${{ steps.retry_failure.outcome }}
+
+      - name: Check Success
+        uses: nick-invision/assert-action@v1
         with:
-          expected: 0
-          actual: ${{ steps.retry_success.exit_code }}
+          expected: success
+          actual: ${{ steps.retry_success.outcome }}
 
       - name: Check Failure
         uses: nick-invision/assert-action@v1
