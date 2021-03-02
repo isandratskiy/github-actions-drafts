@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Retry Dispatch Repo
+    name: Timestamp
     runs-on: ubuntu-latest
 
     steps:
@@ -22,3 +22,5 @@ jobs:
           TIME: "${{ steps.time.outputs.time }}"
         run: |
           echo $TIME
+          date +%s
+          date -d "${TIME}" +%s
