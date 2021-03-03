@@ -11,8 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Start Time
-        run: echo "START_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+      - run: echo "START_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
       - name: Get Time
         id: time
@@ -29,8 +28,7 @@ jobs:
           date +%s
           sleep 5
 
-      - name: End Time
-        run: echo "END_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+      - run: echo "END_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
       - name: Print Timestamps
         run: echo $START_TIMESTAMP --- $END_TIMESTAMP
