@@ -27,6 +27,7 @@ jobs:
         run: |
           echo $TIME
           date +%s
+          sleep 5
 
       - name: End Time
         run: echo "END_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
