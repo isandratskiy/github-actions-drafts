@@ -11,16 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Start Time
+        run: echo "START_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
       - name: Get Time
         id: time
         uses: nanzm/get-time-action@v1.1
         with:
           timeZone: 0
           format: 'YYYY-MM-DD-HH-mm-ss'
+
       - name: Usage
         env:
           TIME: "${{ steps.time.outputs.time }}"
         run: |
           echo $TIME
           date +%s
-#          date -d "${TIME}" +%s
+
+      - name: End Time
+        run: echo "END_TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Print Timestamps
+        run: echo $START_TIMESTAMP --- $END_TIMESTAMP
