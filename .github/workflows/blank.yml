@@ -11,7 +11,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     env:
-      FALSE: false
+      FALSE: true
 
     steps:
     
