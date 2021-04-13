@@ -15,5 +15,5 @@ jobs:
         run: |
          echo "Triggered event text: ${{ github.event.client_payload.text }}"
          echo "${{ github.event_name }}"
-         echo "${{ github.event.event_type }}"
-         
+         echo "${{ github.event.action }}"
+          
