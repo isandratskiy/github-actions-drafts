@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Triggered By Repo Dispathcer
+      - name: Triggered By Repo Dispatcher
         run: |
          echo "Triggered event text: ${{ github.event.client_payload.text }}"
          echo "${{ github.event_name }}"
