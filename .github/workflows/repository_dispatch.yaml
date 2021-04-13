@@ -14,6 +14,6 @@ jobs:
       - name: Triggered By Repo Dispathcer
         run: |
          echo "Triggered event text: ${{ github.event.client_payload.text }}"
-         echo {{ github.event_name }}
-         echo {{ github.event_type }}
+         echo "${{ github.event_name }}"
+         echo "${{ github.event_type }}"
          
