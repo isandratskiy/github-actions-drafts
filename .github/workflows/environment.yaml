@@ -1,0 +1,18 @@
+name: Test environment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: test_env
+    
+    steps:
+      - name: Run Tests
+        id: test_run
+        env:
+          SECRET_ENV: ${{ secrets.SECRET_KEY }}
+        run: echo $SECRET_ENV
