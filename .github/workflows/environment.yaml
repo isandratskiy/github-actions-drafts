@@ -3,7 +3,7 @@ name: Test environment
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deployment:
